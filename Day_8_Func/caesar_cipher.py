@@ -1,4 +1,5 @@
 from hmac import new
+from unittest import result
 
 alphabet = [
     "a",
@@ -55,11 +56,6 @@ alphabet = [
     "z",
 ]
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-shift = shift % 26
-
 
 def caesar(start_text, shift_amount, cifer_direction):
     end_text = ""
@@ -75,4 +71,15 @@ def caesar(start_text, shift_amount, cifer_direction):
     print(f"The {cifer_direction}d text: {end_text}")
 
 
-caesar(text, shift, direction)
+continuation = True
+while continuation:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    shift = shift % 26
+
+    caesar(text, shift, direction)
+    result = input("Type 'yes' if you want to go agein. Otherwise type 'no'.\n")
+    if result == "no":
+        continuation = False
+        print("Goodbye")
