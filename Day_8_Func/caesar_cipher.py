@@ -1,6 +1,3 @@
-from hmac import new
-from unittest import result
-
 alphabet = [
     "a",
     "b",
